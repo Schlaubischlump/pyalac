@@ -166,7 +166,6 @@ PYBIND11_MODULE(libalac, m) {
             unsigned char *data = reinterpret_cast<unsigned char *>(info.ptr);
             // Size of the input data in bytes
             int32_t size = static_cast<int32_t>(info.shape[0] * info.itemsize);
-            std::cout << size << std::endl;
             std::string outBuf(size, 0);
             // Encode the data. It's safe to cast, since char and unsigned char both use one byte.
             encoder->Encode(inputFormat, outputFormat, data, (unsigned char *)&outBuf[0], &size);
